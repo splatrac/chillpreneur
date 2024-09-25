@@ -1,0 +1,30 @@
+<!-- Load Shared SCSS -->
+{{ $options := dict "enableSourceMap" true }}
+{{ if hugo.IsProduction}}
+{{ $options := dict "enableSourceMap" false "outputStyle" "compressed" }}
+{{ end }}
+{{- $styles := resources.Get "scss/styles.scss" -}}
+{{- $styles := $styles | css.Sass (dict "outputStyle" "compressed" "includePaths" (slice "assets")) -}}
+<!-- {{ $styles = $styles | css.Sass $options }} -->
+{{ if hugo.IsProduction }}
+{{ $styles = $styles | fingerprint }}
+{{ end }}
+{{- $styles := $styles | resources.ExecuteAsTemplate "main.scss" . -}}
+
+<!-- <style type="text/css" media="all">{{ $styles.Content | safeCSS }}</style> -->
+<link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+
+<!-- Load Shared JS -->
+<!-- {{- $js := resources.Get "js/index.js" -}} -->
+<!-- {{- $js := $js | js.Build (dict "minify" "true") -}} -->
+{{ $js := resources.Get "js/index.js" }}
+{{ $params := dict }}
+{{ $sourceMap := cond hugo.IsProduction "" "inline" }}
+{{ $opts := dict "sourceMap" $sourceMap "minify" hugo.IsProduction "target" "es2018" "params" $params }}
+{{ $js = $js | js.Build $opts }}
+{{ if hugo.IsProduction }}
+{{ $js = $js | fingerprint }}
+{{ end }}  
+
+<script src="{{ $js.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }} defer></script>
+<!-- <script>{{- $js.Content | safeJS -}}</script> -->
