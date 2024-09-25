@@ -1,4 +1,4 @@
-# github.com/splatrac/chillpreneur v0.0.0-20240925155612-07b6c89bf08e
+# github.com/splatrac/chillpreneur v0.0.0-20240925162634-b427a5830d94
 # github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20200
 # github.com/twbs/bootstrap v5.3.3+incompatible
 # github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000

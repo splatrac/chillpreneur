@@ -1,4 +1,3 @@
-import "../index";
 // import "./_bootstrap";
 
 import "./_header";
