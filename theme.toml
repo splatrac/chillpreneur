@@ -1,8 +1,8 @@
 name = "Chillpreneur"
 license = "MIT"
-licenselink = "https://gitlab.com/writeonlyhugo/up-business-theme/-/blob/master/LICENSE"
+licenselink = "https://github.com/splatrac/chillpreneur?tab=MIT-1-ov-file#readme"
 description = "A clean and modern landing page website inspired by clean and modern illustrations."
-homepage = "https://github.com/splatrac/chillpreneur-theme/"
+homepage = "https://github.com/splatrac/chillpreneur/"
 
 tags = [
     "blog",
