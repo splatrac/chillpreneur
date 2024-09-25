@@ -5,6 +5,6 @@ go 1.23.1
 require (
 	github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20200 // indirect
 	github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000 // indirect
-	github.com/splatrac/chillpreneur v0.0.0-20240925192701-f0d7cff6f24c // indirect
+	github.com/splatrac/chillpreneur v0.0.0-20240925192845-619d24ecdc37 // indirect
 	github.com/twbs/bootstrap v5.3.3+incompatible // indirect
 )
