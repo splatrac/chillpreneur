@@ -1,7 +1,7 @@
 name = "Chillpreneur"
 license = "MIT"
 licenselink = "https://github.com/splatrac/chillpreneur?tab=MIT-1-ov-file#readme"
-description = "A clean and modern landing page website inspired by clean and modern illustrations."
+description = "Chillpreneur is a laid-back, pastel-themed Hugo template designed for creative small businesses and entrepreneurs who value both style and simplicity. With its soft color palette and clean design, Chillpreneur offers an inviting and friendly user experience, perfect for showcasing products, services, or portfolios. Ideal for startups, freelancers, and lifestyle brands, this theme keeps things professional without sacrificing a relaxed, approachable vibe—just the right blend of business and chill!"
 homepage = "https://github.com/splatrac/chillpreneur/"
 
 tags = [
