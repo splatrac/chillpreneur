@@ -1,0 +1,11 @@
+github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20200 h1:SmpwwN3DNzJWbV+IT8gaFu07ENUFpCvKou5BHYUKuVs=
+github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20200/go.mod h1:kx8MBj9T7SFR8ZClWvKZPmmUxBaltkoXvnWlZZcSnYA=
+github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000 h1:GZxx4Hc+yb0/t3/rau1j8XlAxLE4CyXns2fqQbyqWfs=
+github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000/go.mod h1:mFberT6ZtcchrsDtfvJM7aAH2bDKLdOnruUHl0hlapI=
+github.com/splatrac/up-business-theme v0.0.0-20240925110758-c19f0078f6fe h1:qpgqbFYyB2EAS5C51nMBCqRZ/RlvZg2erMKGO/huNPM=
+github.com/splatrac/up-business-theme v0.0.0-20240925110758-c19f0078f6fe/go.mod h1:o42dkgzS+DLvfwpl0IAl7wvOmnmy5rTlSMoGmR7rn0o=
+github.com/splatrac/up-business-theme v0.0.0-20240925113617-22467a4da490 h1:SXtEtPGw18JmisJyHVhGbGJhcQEDcdHzFkImnsAOpSw=
+github.com/splatrac/up-business-theme v0.0.0-20240925113617-22467a4da490/go.mod h1:o42dkgzS+DLvfwpl0IAl7wvOmnmy5rTlSMoGmR7rn0o=
+github.com/twbs/bootstrap v5.3.2+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
+github.com/twbs/bootstrap v5.3.3+incompatible h1:goFoqinzdHfkeegpFP7pvhbd0g+A3O2hbU3XCjuNrEQ=
+github.com/twbs/bootstrap v5.3.3+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
