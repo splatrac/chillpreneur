@@ -1,4 +1,4 @@
-module github.com/splatrac/up-business-theme
+module github.com/splatrac/chillpreneur
 
 go 1.23.1
 
