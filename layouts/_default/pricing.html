@@ -22,16 +22,21 @@
             {{ range $index, $service := $services }}
             <div id="{{ $subcategory }}-{{ .service }}" class="container tab-pane {{ if eq .index 0 }}active{{ end }}">
                 <div class="row">
+                    <!-- Pricing cards  -->
                     {{ range .services }}
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
+                            <div class="card-header bg-primary border-primary text-white"
+                            <h4 class="my-0 fw-normal">{{ .name }}</h4>
                             <div class="card-body">
-                                <h5 class="card-title">{{ .name }}</h5>
-                                <p class="card-text">{{ .description }}</p>
-                                <p class="card-text"><strong>{{ .price }}</strong></p>
-                                <p class="card-text"><strong>{{ .unit }}</strong></p>
-                                <p class="card-text"><strong>{{ .revisions }}</strong></p>
-                                <p class="card-text"><strong>{{ .lead_time }}</strong></p>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>{{ .description }}</li>
+                                    <li><strong>{{ .price }}</strong></li>
+                                    <li><strong>{{ .unit }}</strong></li>
+                                    <li><strong>{{ .revisions }}</strong></li>
+                                    <li><strong>{{ .lead_time }}</strong></li>
+                                </ul>
+                                <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
                             </div>
                         </div>
                     </div>
