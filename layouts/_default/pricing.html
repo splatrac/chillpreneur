@@ -15,7 +15,7 @@
     <div class="tab-content mt-4">
         <!-- Web Services -->
 
-        {{ range $index, $subcategory := .Site.Data.pricing.web.services }}
+        {{ range $index, $subcategory := .Site.Data.pricing.web.subcategories }}
         <div id="web-{{ .subcategory }}" class="container tab-pane active">
             <h3>{{ .subcategory }} Services</h3>
             {{ range $index, $service := .subcategory.services }}
