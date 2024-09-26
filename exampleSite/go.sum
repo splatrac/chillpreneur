@@ -24,6 +24,8 @@ github.com/splatrac/chillpreneur v0.0.0-20240926103856-afcc3c7dd143 h1:bIRkyorRZ
 github.com/splatrac/chillpreneur v0.0.0-20240926103856-afcc3c7dd143/go.mod h1:CK5WgFlrl0e3QBFdmQrGEItNKGQ0UFWj0zedHMdV2iE=
 github.com/splatrac/chillpreneur v0.0.0-20240926121926-08ce97b11151 h1:Jc9MDO/98NJy82DvfzKC7YijX95BZ+1TmhYRobamk2s=
 github.com/splatrac/chillpreneur v0.0.0-20240926121926-08ce97b11151/go.mod h1:CK5WgFlrl0e3QBFdmQrGEItNKGQ0UFWj0zedHMdV2iE=
+github.com/splatrac/chillpreneur v0.0.0-20240926133745-62960437d6b2 h1:urPVSTf0VCn55dj0qYd7YQ2AEgEtu2N7TEGsqLXLp4A=
+github.com/splatrac/chillpreneur v0.0.0-20240926133745-62960437d6b2/go.mod h1:CK5WgFlrl0e3QBFdmQrGEItNKGQ0UFWj0zedHMdV2iE=
 github.com/twbs/bootstrap v5.3.2+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
 github.com/twbs/bootstrap v5.3.3+incompatible h1:goFoqinzdHfkeegpFP7pvhbd0g+A3O2hbU3XCjuNrEQ=
 github.com/twbs/bootstrap v5.3.3+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
