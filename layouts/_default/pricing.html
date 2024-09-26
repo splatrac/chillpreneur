@@ -18,7 +18,7 @@
         {{ range $index, $subcategory := .Site.Data.pricing.web.subcategories }}
         <div id="web-{{ .subcategory }}" class="container tab-pane active">
             <h3>{{ .subcategory }} Services</h3>
-            {{ range $index, $service := .subcategory.services }}
+            {{ range $index, $service := $subcategory.services }}
             <div id="{{ .subcategory }}-{{ .service }}" class="container tab-pane {{ if eq .index 0 }}active{{ end }}">
                 <div class="row">
                     {{ range .services }}
