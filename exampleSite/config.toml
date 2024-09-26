@@ -7,6 +7,14 @@ summaryLength = 20
 [[module.imports]]
 path = "github.com/splatrac/chillpreneur"
 
+[module.hugoVersion]
+extended = true
+min = "0.124.0"
+
+[[module.mounts]]
+source = "assets"
+target = "assets"
+
 [params]
 title = "Up Business"
 description = "We specialize in providing services to desing websites, applications, build and maintain business for customers."

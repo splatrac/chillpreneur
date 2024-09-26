@@ -1,7 +1,6 @@
 {{ define "main" }}
 <div class="container">
     <h2 class="text-center">{{ .Title }}</h2>
-
     <!-- Nav tabs for the categories -->
     <ul class="nav nav-tabs" role="tablist">
         {{ range $index, $subcategory := .Site.Data.pricing.web.subcategories }}
@@ -14,7 +13,6 @@
     <!-- Tab content for the three categories -->
     <div class="tab-content mt-4">
         <!-- Web Services -->
-
         {{ range $index, $subcategory := .Site.Data.pricing.web.subcategories }}
         <div id="web-{{ .subcategory }}" class="container tab-pane {{ if eq .index 0 }}active{{ end }}">
             <h3>{{ title .subcategory }} Services</h3>
@@ -37,7 +35,7 @@
                                     <li><strong>{{ .revisions }}</strong></li>
                                     <li><strong>{{ .lead_time }}</strong></li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+                                <button type="button" class="w-100 btn btn-lg btn-secondary">Contact us</button>
                             </div>
                         </div>
                     </div>
