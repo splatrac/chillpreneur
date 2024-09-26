@@ -4,9 +4,9 @@
 
     <!-- Nav tabs for the categories -->
     <ul class="nav nav-tabs" role="tablist">
-        {{ range $index, $subcategory := .Site.Data.pricing.web.services }}
+        {{ range $index, $subcategory := .Site.Data.pricing.web.subcategories }}
         <li class="nav-item">
-            <a class="nav-link {{ if eq $index 0 }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ $subcategory }}">{{ $subcategory }}</a>
+            <a class="nav-link {{ if eq $index 0 }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ .subcategory }}">{{ .subcategory }}</a>
         </li>
         {{ end }}
     </ul>

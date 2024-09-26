@@ -1,4 +1,4 @@
-services:
+subcategories:
   - subcategory: project
     services:
     - name: static website
