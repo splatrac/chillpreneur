@@ -6,7 +6,7 @@
     <ul class="nav nav-tabs" role="tablist">
         {{ range $index, $subcategory := .Site.Data.pricing.web.services }}
         <li class="nav-item">
-            <a class="nav-link {{ if eq $index 0 }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ replace $subcategory" " "-" }}">{{ $subcategory }}</a>
+            <a class="nav-link {{ if eq $index 0 }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ $subcategory }}">{{ $subcategory }}</a>
         </li>
         {{ end }}
     </ul>
