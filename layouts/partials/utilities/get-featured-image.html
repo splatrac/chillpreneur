@@ -1,11 +1,8 @@
 {{ $featured := "" }}
 
-{{- with .Params.images -}}
-  {{ $featured = ( index . 0 ) }}"/>
-{{ else -}}
-  {{- with .Site.Params.images -}}
-    {{ $featured = ( index . 0 ) }}"/>
-  {{ end }}
+{{ $images := .Params.images | default .Site.Params.images }}
+{{ if $images }}
+  {{ $featured = index $images 0 }}
 {{ end }}
 
 {{ return $featured }}
