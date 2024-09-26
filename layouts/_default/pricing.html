@@ -1,38 +1,35 @@
 {{ define "main" }}
 <div class="container">
     <h2 class="text-center">{{ .Title }}</h2>
+
     <!-- Nav tabs for the categories -->
     <ul class="nav nav-tabs" role="tablist">
-        {{ range .Site.Data.pricing.web.services }}
+        {{ range $index, $subcategory := .Site.Data.pricing.web.services }}
         <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#web"> Services</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#marketing">Marketing Services</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#hardware">Hardware Services</a>
+            <a class="nav-link {{ if eq $index 0 }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ replace $service.subcategory " " "-" }}">{{ $service.subcategory }}</a>
         </li>
         {{ end }}
     </ul>
 
     <!-- Tab content for the three categories -->
     <div class="tab-content mt-4">
-        
         <!-- Web Services -->
         <div id="web" class="container tab-pane active">
             <h3>Web Services</h3>
+
             <!-- Subcategory tabs for Web Services -->
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 {{ range .Site.Data.pricing.web.services }}
                 <li class="nav-item">
-                    <a class="nav-link {{ if eq (index . 0).subcategory "Development" }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ replace .subcategory " " "-" }}">{{ .subcategory }}</a>
+                    <a class="nav-link {{ if eq .subcategory "Development" }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ replace .subcategory " " "-" }}">{{ .subcategory }}</a>
                 </li>
                 {{ end }}
             </ul>
+
+            <!-- Subcategory tab content for Web Services -->
             <div class="tab-content">
-                {{ range .Site.Data.web.web_services }}
-                <div id="web-{{ replace .subcategory " " "-" }}" class="container tab-pane {{ if eq (index . 0).subcategory "Development" }}active{{ end }}">
+                {{ range .Site.Data.pricing.web.services }}
+                <div id="web-{{ replace .subcategory " " "-" }}" class="container tab-pane {{ if eq .subcategory "Development" }}active{{ end }}">
                     <div class="row">
                         {{ range .services }}
                         <div class="col-md-4">
@@ -50,6 +47,19 @@
                 {{ end }}
             </div>
         </div>
+
+        <!-- Marketing Services -->
+        <div id="marketing" class="container tab-pane">
+            <h3>Marketing Services</h3>
+            <!-- Add similar content structure for marketing services if needed -->
+        </div>
+
+        <!-- Hardware Services -->
+        <div id="hardware" class="container tab-pane">
+            <h3>Hardware Services</h3>
+            <!-- Add similar content structure for hardware services if needed -->
+        </div>
     </div>
 </div>
 {{ end }}
+
