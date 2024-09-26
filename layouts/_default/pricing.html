@@ -3,8 +3,9 @@
     <h2 class="text-center">{{ .Title }}</h2>
     <!-- Nav tabs for the categories -->
     <ul class="nav nav-tabs" role="tablist">
+        {{ range .Site.Data.pricing.web.services }}
         <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="tab" href="#web">Web Services</a>
+            <a class="nav-link active" data-bs-toggle="tab" href="#web"> Services</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="tab" href="#marketing">Marketing Services</a>
@@ -22,7 +23,7 @@
             <h3>Web Services</h3>
             <!-- Subcategory tabs for Web Services -->
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                {{ range .Site.Data.web.web_services }}
+                {{ range .Site.Data.pricing.web.services }}
                 <li class="nav-item">
                     <a class="nav-link {{ if eq (index . 0).subcategory "Development" }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ replace .subcategory " " "-" }}">{{ .subcategory }}</a>
                 </li>
@@ -31,70 +32,6 @@
             <div class="tab-content">
                 {{ range .Site.Data.web.web_services }}
                 <div id="web-{{ replace .subcategory " " "-" }}" class="container tab-pane {{ if eq (index . 0).subcategory "Development" }}active{{ end }}">
-                    <div class="row">
-                        {{ range .services }}
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ .name }}</h5>
-                                    <p class="card-text">{{ .description }}</p>
-                                    <p class="card-text"><strong>{{ .price }}</strong></p>
-                                </div>
-                            </div>
-                        </div>
-                        {{ end }}
-                    </div>
-                </div>
-                {{ end }}
-            </div>
-        </div>
-
-        <!-- Marketing Services -->
-        <div id="marketing" class="container tab-pane fade">
-            <h3>Marketing Services</h3>
-            <!-- Subcategory tabs for Marketing Services -->
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                {{ range .Site.Data.marketing.marketing_services }}
-                <li class="nav-item">
-                    <a class="nav-link {{ if eq (index . 0).subcategory "SEO" }}active{{ end }}" data-bs-toggle="tab" href="#marketing-{{ replace .subcategory " " "-" }}">{{ .subcategory }}</a>
-                </li>
-                {{ end }}
-            </ul>
-            <div class="tab-content">
-                {{ range .Site.Data.marketing.marketing_services }}
-                <div id="marketing-{{ replace .subcategory " " "-" }}" class="container tab-pane {{ if eq (index . 0).subcategory "SEO" }}active{{ end }}">
-                    <div class="row">
-                        {{ range .services }}
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ .name }}</h5>
-                                    <p class="card-text">{{ .description }}</p>
-                                    <p class="card-text"><strong>{{ .price }}</strong></p>
-                                </div>
-                            </div>
-                        </div>
-                        {{ end }}
-                    </div>
-                </div>
-                    {{ end }}
-                </div>
-        </div>
-
-        <!-- Hardware Services -->
-        <div id="hardware" class="container tab-pane fade">
-            <h3>Hardware Services</h3>
-            <!-- Subcategory tabs for Hardware Services -->
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                {{ range .Site.Data.hardware.hardware_services }}
-                <li class="nav-item">
-                    <a class="nav-link {{ if eq (index . 0).subcategory "Repairs" }}active{{ end }}" data-bs-toggle="tab" href="#hardware-{{ replace .subcategory " " "-" }}">{{ .subcategory }}</a>
-                </li>
-                {{ end }}
-            </ul>
-            <div class="tab-content">
-                {{ range .Site.Data.hardware.hardware_services }}
-                <div id="hardware-{{ replace .subcategory " " "-" }}" class="container tab-pane {{ if eq (index . 0).subcategory "Repairs" }}active{{ end }}">
                     <div class="row">
                         {{ range .services }}
                         <div class="col-md-4">

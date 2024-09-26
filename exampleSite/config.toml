@@ -46,19 +46,23 @@ url = "/#"
 weight = 3
 
 [[menus.main]]
-parent = "Pricing"
+name = "Pricing"
+identifier = "pricing"
+weight = 4
+[[menus.main]]
+parent = "pricing"
 name = "Web"
 url = "/pricing/web"
 weight = 1
 
 [[menus.main]]
-parent = "Pricing"
+parent = "pricing"
 name = "Marketing"
 url = "/pricing/marketing"
 weight = 2
 
 [[menus.main]]
-parent = "Pricing"
+parent = "pricing"
 name = "Hardware"
 url = "/pricing/hardware"
 weight = 3
