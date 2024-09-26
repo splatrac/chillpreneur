@@ -18,7 +18,7 @@
             <h3>Main Services</h3>
 
             {{ range .Site.Data.pricing.web.services }}
-            <div id="web-{{ replace .subcategory " "-" }}" class="container tab-pane {{ if eq .subcategory "Development" }}active{{ end }}">
+            <div id="web-{{ .subcategory }}" class="container tab-pane {{ if eq .subcategory "Development" }}active{{ end }}">
                 <div class="row">
                     {{ range .services }}
                     <div class="col-md-4">
