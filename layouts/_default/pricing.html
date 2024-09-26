@@ -14,11 +14,12 @@
     <!-- Tab content for the three categories -->
     <div class="tab-content mt-4">
         <!-- Web Services -->
-        <div id="web" class="container tab-pane active">
-            <h3>Main Services</h3>
 
-            {{ range .Site.Data.pricing.web.services }}
-            <div id="web-{{ .subcategory }}" class="container tab-pane {{ if eq .subcategory "Development" }}active{{ end }}">
+        {{ range $index, $subcategory := .Site.Data.pricing.web.services }}
+        <div id="web-{{ .subcategory }}" class="container tab-pane active">
+            <h3>{{ .subcategory }} Services</h3>
+            {{ range $index, $service := .subcategory.services }}
+            <div id="{{ .subcategory }}-{{ .service }}" class="container tab-pane {{ if eq .index 0 }}active{{ end }}">
                 <div class="row">
                     {{ range .services }}
                     <div class="col-md-4">
@@ -38,12 +39,7 @@
             </div>
             {{ end }}
         </div>
-
-        <!-- Addon Services -->
-        <div id="addon" class="container tab-pane">
-            <h3>Addon Services</h3>
-            <!-- Add similar content structure for hardware services if needed -->
-        </div>
+        {{ end }}
     </div>
 </div>
 {{ end }}
