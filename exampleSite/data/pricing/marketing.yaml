@@ -1,0 +1,18 @@
+subcategories:
+  - subcategory: design
+    services:
+    - name: logo design
+      description: Custom logo design for your business, including up to 3 revisions.
+      price: 90.00 €
+      unit: project
+      revisions: 4
+      lead_time: 10d
+  - subcategory: promotion
+    services:
+    - name: SEO 
+      description: On-page and off-page SEO optimization for your website to improve search engine rankings.
+      price: 150.00 €
+      unit: project
+      revisions: N/A
+      lead_time: 30d
+
