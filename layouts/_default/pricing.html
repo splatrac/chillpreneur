@@ -1,9 +1,13 @@
 {{ define "main" }}
+
+{{ $key := .File.BaseFileName}}
+{{ with index .Site.Data.pricing $key }}
 <div class="container">
     <h2 class="text-center">{{ .Title }}</h2>
     <!-- Nav tabs for the categories -->
+
     <ul class="nav nav-tabs" role="tablist">
-        {{ range $index, $subcategory := .Site.Data.pricing.web.subcategories }}
+        {{ range $index, $subcategory := .subcategories }}
         <li class="nav-item">
             <a class="nav-link {{ if eq $index 0 }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ .subcategory }}">{{ .subcategory }}</a>
         </li>
@@ -13,8 +17,8 @@
     <!-- Tab content for the three categories -->
     <div class="tab-content mt-4">
         <!-- Web Services -->
-        {{ range $index, $subcategory := .Site.Data.pricing.web.subcategories }}
-        <div id="web-{{ .subcategory }}" class="container tab-pane {{ if eq .index 0 }}active{{ end }}">
+        {{ range $index, $subcategory := .subcategories }}
+        <div id="web-{{ .subcategory }}" class="container tab-pane {{ if compare.Eq $index 0 }}active show{{ end }}">
             <h3>{{ title .subcategory }} Services</h3>
             {{ $services := slice $subcategory }}
             {{ range $index, $service := $services }}
@@ -73,3 +77,4 @@
 </div>
 {{ end }}
 
+        {{ end }}
