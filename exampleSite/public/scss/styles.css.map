@@ -1,9 +1,9 @@
 {
 	"version": 3,
 	"file": "styles.css",
-	"sourceRoot": "/Users/orestismoresis/Workspace/Splatrac/chillpreneur/exampleSite",
+	"sourceRoot": "/Users/orestismoresis/Workspace/Orbitplum/chillpreneur/exampleSite",
 	"sources": [
-		"/Users/orestismoresis/Workspace/Splatrac/chillpreneur/assets/scss/styles.scss",
+		"/Users/orestismoresis/Workspace/Orbitplum/chillpreneur/assets/scss/styles.scss",
 		"../../../../Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.3+incompatible/scss/_functions.scss",
 		"../../../../Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.3+incompatible/scss/_variables.scss",
 		"../../../../Library/Caches/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.3+incompatible/scss/_variables-dark.scss",

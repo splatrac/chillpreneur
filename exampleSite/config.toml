@@ -36,7 +36,7 @@ faviconColor = "#000000"
 dribbble = "#"
 instagram = "#"
 facebook = "#"
-twitter = "#"
+x = "#"
 
 [[menus.main]]
 name = "Home"

@@ -1,0 +1,68 @@
+categories:
+- category: marketing
+  subcategories:
+    - subcategory: design
+      services:
+      - name: logo design
+        description: Custom logo design for your business, including up to 3 revisions.
+        price: 90.00 €
+        unit: project
+        revisions: 4
+        lead_time: 10d
+    - subcategory: promotion
+      services:
+      - name: SEO 
+        description: On-page and off-page SEO optimization for your website to improve search engine rankings.
+        price: 150.00 €
+        unit: project
+        revisions: N/A
+        lead_time: 30d
+
+- category: web
+  subcategories:
+    - subcategory: project
+      services:
+      - name: static website
+        description: Basic website with up to 5 pages, including design, development, and hosting.
+        price: 300.00 €
+        unit: project
+        revisions: 4
+        lead_time: 10d
+    - subcategory: addon
+      services:
+      - name: content management system
+        description: Allow clients to manage and update their website content through a user-friendly CMS.
+        price: 80.00 €
+        unit: project
+        revisions: N/A
+        lead_time: 1d
+      - name: hosting/backup
+        description: Secure hosting and daily backups for your static website with 99.9% uptime.
+        price: 100.00 €
+        unit: yearly
+        revisions: N/A
+        storage: 1GB
+        frequency: daily
+      - name: emails
+        description: Professional email addresses with your domain name and spam protection.
+        price: 50.00 €
+        unit: quarterly
+        revisions: N/A
+        accounts: 5
+        storage: 10GB
+      - name: Domain & domain management
+        description: Domain registration, SSL certificate, and DNS management for your website.
+        price: 30.00 €
+        unit: yearly
+        revisions: N/A
+
+- category: hardware
+  subcategories:
+      - subcategory: project
+        services:
+        - name: pc fix
+          description: Fix PC issue
+          price: 40.00 €
+          unit: project
+          revisions: 1
+          lead_time: 1d

@@ -1,80 +1,86 @@
 {{ define "main" }}
 
-{{ $key := .File.BaseFileName}}
-{{ with index .Site.Data.pricing $key }}
-<div class="container">
-    <h2 class="text-center">{{ .Title }}</h2>
-    <!-- Nav tabs for the categories -->
+{{ $currentCategory := .Params.category }}
+{{ $categories := where .Site.Data.pricing.categories "category" $currentCategory }}
 
-    <ul class="nav nav-tabs" role="tablist">
-        {{ range $index, $subcategory := .subcategories }}
-        <li class="nav-item">
-            <a class="nav-link {{ if eq $index 0 }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ .subcategory }}">{{ .subcategory }}</a>
-        </li>
-        {{ end }}
-    </ul>
+{{ with $categories }}
 
-    <!-- Tab content for the three categories -->
-    <div class="tab-content mt-4">
-        <!-- Web Services -->
-        {{ range $index, $subcategory := .subcategories }}
-        <div id="web-{{ .subcategory }}" class="container tab-pane {{ if compare.Eq $index 0 }}active show{{ end }}">
-            <h3>{{ title .subcategory }} Services</h3>
-            {{ $services := slice $subcategory }}
-            {{ range $index, $service := $services }}
-            <div id="{{ $subcategory }}-{{ .service }}" class="container tab-pane {{ if eq .index 0 }}active{{ end }}">
-                <div class="row">
-                    <!-- Pricing cards  -->
-                    {{ range .services }}
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <div class="card-header bg-primary border-primary text-white">
-                                <h4 class="my-0 fw-normal">{{ title .name }}</h4>
-                            </div>
-                            <div class="card-body">
-                                    <p>{{ .description }}</p>
-                                    <table class="table">
-                                    <tr>
-                                        <td><span class="ptable-title"><i class="fa fa-hdd-o"></i>Unit: </span></td>
-                                        <td>
-                                            <i class="fa fa-hdd-o red"></i>
-                                            {{ .unit }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="ptable-title"><i class="fa fa-hdd-o"></i>Revisions: </span></td>
-                                        <td>
-                                            <i class="fa fa-hdd-o red"></i>
-                                            {{ .revisions }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="ptable-title"><i class="fa fa-hdd-o"></i>Lead Time: </span></td>
-                                        <td>
-                                            <i class="fa fa-hdd-o red"></i>
-                                            {{ .lead_time }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="ptable-title"><i class="fa fa-hdd-o"></i>Price: </span></td>
-                                        <td>
-                                            <i class="fa fa-hdd-o red"></i>
-                                            {{ .price }}
-                                        </td>
-                                    </tr>
-                                    </table>
-                                <button type="button" class="w-100 btn btn-lg btn-outline-danger">Contact us</button>
-                            </div>
-                        </div>
-                    </div>
-                    {{ end }}
-                </div>
-            </div>
-            {{ end }}
-        </div>
-        {{ end }}
-    </div>
-</div>
+  {{ range . }}
+  <div class="container">
+      <h2 class="text-center">{{ .Title }}</h2>
+      <!-- Nav tabs for the categories -->
+
+      <ul class="nav nav-tabs" role="tablist">
+          {{ range $index, $subcategory := .subcategories }}
+          <li class="nav-item">
+              <a class="nav-link {{ if eq $index 0 }}active{{ end }}" data-bs-toggle="tab" href="#web-{{ .subcategory }}">{{ .subcategory }}</a>
+          </li>
+          {{ end }}
+      </ul>
+
+      <!-- Tab content for the three categories -->
+      <div class="tab-content mt-4">
+          <!-- Web Services -->
+          {{ range $index, $subcategory := .subcategories }}
+          <div id="web-{{ .subcategory }}" class="container tab-pane {{ if compare.Eq $index 0 }}active show{{ end }}">
+              <h3>{{ title .subcategory }} Services</h3>
+              {{ $services := slice $subcategory }}
+              {{ range $index, $service := $services }}
+              <div id="{{ $subcategory }}-{{ .service }}" class="container tab-pane {{ if eq .index 0 }}active{{ end }}">
+                  <div class="row">
+                      <!-- Pricing cards  -->
+                      {{ range .services }}
+                      <div class="col-md-4">
+                          <div class="card mb-4 shadow-sm">
+                              <div class="card-header bg-primary border-primary text-white">
+                                  <h4 class="my-0 fw-normal">{{ title .name }}</h4>
+                              </div>
+                              <div class="card-body">
+                                      <p>{{ .description }}</p>
+                                      <table class="table">
+                                      <tr>
+                                          <td><span class="ptable-title"><i class="fa fa-hdd-o"></i>Unit: </span></td>
+                                          <td>
+                                              <i class="fa fa-hdd-o red"></i>
+                                              {{ .unit }}
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td><span class="ptable-title"><i class="fa fa-hdd-o"></i>Revisions: </span></td>
+                                          <td>
+                                              <i class="fa fa-hdd-o red"></i>
+                                              {{ .revisions }}
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td><span class="ptable-title"><i class="fa fa-hdd-o"></i>Lead Time: </span></td>
+                                          <td>
+                                              <i class="fa fa-hdd-o red"></i>
+                                              {{ .lead_time }}
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td><span class="ptable-title"><i class="fa fa-hdd-o"></i>Price: </span></td>
+                                          <td>
+                                              <i class="fa fa-hdd-o red"></i>
+                                              {{ .price }}
+                                          </td>
+                                      </tr>
+                                      </table>
+                                      <a href="/contact/" class="w-100 btn btn-lg btn-outline-danger">Contact us</a>
+                              </div>
+                          </div>
+                      </div>
+                      {{ end }}
+                  </div>
+              </div>
+              {{ end }}
+          </div>
+          {{ end }}
+      </div>
+  </div>
+  {{ end }}
 {{ end }}
 
-        {{ end }}
+{{ end }}
+
