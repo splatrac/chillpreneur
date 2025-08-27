@@ -26,6 +26,7 @@ location = [
 ]
 contact = ["trungkienspktnd@gamail.com", "207.555.0119"]
 copyright = "© 2022 Up Business All Rights Reserved"
+formspree_url = "your formspree url here"
 
 [params.favicons]
 themeColor = "#FFFFFF"
@@ -37,6 +38,7 @@ dribbble = "#"
 instagram = "#"
 facebook = "#"
 x = "#"
+
 
 [[menus.main]]
 name = "Home"
