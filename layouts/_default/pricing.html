@@ -1,7 +1,7 @@
 {{ define "main" }}
 
-{{ $key := .File.BaseFileName}}
-{{ with index .Site.Data.pricing $key }}
+{{ range .Site.Data.pricing.categories }}
+{{ if eq .category $.Params.category }}
 <div class="container">
     <h2 class="text-center">{{ .Title }}</h2>
     <!-- Nav tabs for the categories -->
@@ -76,5 +76,6 @@
     </div>
 </div>
 {{ end }}
+{{ end }}
 
-        {{ end }}
+{{ end }}
