@@ -36,6 +36,7 @@ categories:
           price: 30.00 €
           unit: yearly
           revisions: N/A
+
   - category: marketing
     subcategories:
       - subcategory: design
@@ -55,3 +56,13 @@ categories:
           revisions: N/A
           lead_time: 30d
 
+  - category: hardware
+    subcategories:
+        - subcategory: project
+          services:
+          - name: pc fix
+            description: Fix PC issue
+            price: 40.00 €
+            unit: project
+            revisions: 1
+            lead_time: 1d
