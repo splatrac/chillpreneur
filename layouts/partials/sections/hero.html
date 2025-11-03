@@ -1,8 +1,10 @@
+{{ $hero := site.Data.home.hero }}
+{{ $imgPath := $hero.content.image }}
 <section class="section hero py-5">
   <div class="container">
     <div class="row flex-column flex-xl-row-reverse">
       <div class="col-12 col-xl-6  d-flex flex-column justify-content-center hero-image">
-        {{ partial "utilities/image-fluid" "images/hero-image.png" }}
+        {{ partial "utilities/image-fluid" $imgPath }}
       </div>
       <div class="col-12 col-xl-6 d-flex flex-column justify-content-center">
         {{ with .content.title }}
