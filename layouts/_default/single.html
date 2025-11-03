@@ -1,5 +1,10 @@
 {{ define "main" }}
   <section class="section blog-single py-5">
+    {{ with .Params.coverImage }}                     {{/* .Params = front‑matter fields */}}
+      <section class="cover-image-wrapper text-center mb-5">
+        {{ partial "utilities/image-third" . }}
+      </section>
+    {{ end }}
     <div class="container">
       <div class="row justify-content-center pb-5">
         <div class="col-12">
