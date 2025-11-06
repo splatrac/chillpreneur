@@ -1,14 +1,28 @@
 {{ define "main" }}
 <div class="min-vh-100 py-6">
-{{ with .Params.coverImage }}                     
+  {{/* Cover Image */}}
+  {{ with .Params.coverImage }}                     
   <section class="cover-image-wrapper text-center mb-5">
     {{ partial "utilities/image-third" . }}
   </section>
-{{ end }}
-  <p class="text-center text-black-61 mb-2">We’d love to hear from you. Please fill out the form below and we’ll get back to you as soon as possible.</p>
-<section class="max-w-3xl mx-auto p-6 align-content-center">
-  {{ partial "utilities/form.html" . }}
-</section>
+  {{ end }}
+
+  {{/* Intro Text */}}
+  <p class="text-center text-black-61 mb-2">
+    We’d love to hear from you. Please fill out the form below and we’ll get back to you as soon as possible.
+  </p>
+
+  {{/* Contact Form Section */}}
+  <section class="max-w-3xl mx-auto p-6 align-content-center">
+    {{ if .Site.Params.formspree_url }}
+      {{ partial "utilities/form.html" . }}
+    {{ else }}
+      <p class="text-center text-red-600">
+        Contact form is not configured. Please set <code>params.formspree_url</code> in your config.toml.
+      </p>
+    {{ end }}
+  </section>
+
 </div>
 {{ end }}
 
