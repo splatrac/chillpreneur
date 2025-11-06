@@ -1,13 +1,13 @@
 {{ define "main" }}
 <div class="min-vh-100 py-6">
-{{ with .Params.coverImage }}                     {{/* .Params = front‑matter fields */}}
+{{ with .Params.coverImage }}                     
   <section class="cover-image-wrapper text-center mb-5">
     {{ partial "utilities/image-third" . }}
   </section>
 {{ end }}
   <p class="text-center text-black-61 mb-2">We’d love to hear from you. Please fill out the form below and we’ll get back to you as soon as possible.</p>
 <section class="max-w-3xl mx-auto p-6 align-content-center">
-  {{ partial "utilities/contact-form.html" . }}
+  {{ partial "utilities/form.html" . }}
 </section>
 </div>
 {{ end }}
