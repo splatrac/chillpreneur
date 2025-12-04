@@ -1,18 +1,15 @@
 {{ define "main" }}
 <div class="min-vh-100 py-6">
-  {{/* Cover Image */}}
   {{ with .Params.coverImage }}                     
   <section class="cover-image-wrapper text-center mb-5">
     {{ partial "utilities/image-third" . }}
   </section>
   {{ end }}
 
-  {{/* Intro Text */}}
   <p class="text-center text-black-61 mb-4">
     We’d love to hear from you. Please fill out the form below and we’ll get back to you as soon as possible.
   </p>
 
-  {{/* Contact Form Section */}}
   <section class="mt-2 justify-content-center max-w-3xl mx-auto p-4 align-content-center text-center">
     {{ if .Site.Params.contactFormAction }}
 
