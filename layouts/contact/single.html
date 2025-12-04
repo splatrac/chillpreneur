@@ -15,9 +15,8 @@
   {{/* Contact Form Section */}}
   <section class="max-w-3xl mx-auto p-6 align-content-center">
     {{ if .Site.Params.formspree_url }}
-      <form
-        action="{{ .Site.Params.formspree_url }}"
-        method="POST"
+
+      <form id="contact-form" class="contact-form" action="{{ .Site.Params.contactFormAction | safeURL }}" method="POST" 
         class="max-w-lg mx-auto bg-white rounded-xl shadow-lg space-y-6 p-4 d-flex flex-column w-50"
       >
         <h2 class="text-2xl font-bold text-black-61 mb-4 text-center">Contact Form</h2>
