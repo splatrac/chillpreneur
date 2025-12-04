@@ -7,13 +7,14 @@
             <h2 class="fs-1 fw-bold text-center text-primary pb-3">{{ . }}</h2>
           {{ end }}
 
-        {{ with .Params.coverImage }}                     
-      <div class="row">
-          <section class="cover-image-wrapper text-center mb-5">
-            {{ partial "utilities/image-third" . }}
-          </section>
-      </div>
-        {{ end }}
+          {{ with .Params.coverImage }}                     
+          <div class="row">
+              <section class="cover-image-wrapper text-center mb-5">
+                {{ partial "utilities/image-third" . }}
+              </section>
+          </div>
+          {{ end }}
+
           {{ with .Params.description }}
             <p class="text-black-61 text-center pb-3">{{ . }}</p>
           {{ end }}
