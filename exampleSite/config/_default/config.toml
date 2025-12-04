@@ -26,7 +26,7 @@ location = [
 ]
 contact = ["someone@example.com", "207.555.0119"]
 copyright = "Splatrac"
-formspree_url = "your formspree url here"
+contactFormAction = "your formspree url here"
 
 [params.favicons]
 themeColor = "#FFFFFF"
