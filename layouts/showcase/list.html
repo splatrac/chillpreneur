@@ -1,0 +1,127 @@
+{{ define "main" }}
+{{ $items := .Site.Data.showcase.items }}
+
+{{ $types := slice }}
+{{ $clients := slice }}
+{{ $years := slice }}
+{{ range $items }}
+  {{ if not (in $types .type) }}
+    {{ $types = $types | append .type }}
+  {{ end }}
+  {{ if not (in $clients .client) }}
+    {{ $clients = $clients | append .client }}
+  {{ end }}
+  {{ $year := dateFormat "2006" .date }}
+  {{ if not (in $years $year) }}
+    {{ $years = $years | append $year }}
+  {{ end }}
+{{ end }}
+
+{{ $types = sort $types }}
+{{ $clients = sort $clients }}
+{{ $years = sort $years }}
+
+<section class="section showcase py-5">
+  <div class="container">
+    <div class="row justify-content-center pb-4">
+      <div class="col-12 col-xl-6">
+        <h2 class="fs-1 fw-bold text-center text-primary pb-3">{{ .Title }}</h2>
+        <p class="text-black-61 text-center pb-3">{{ .Params.description }}</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center pb-5">
+      <div class="col-12">
+        <div class="showcase-filters d-flex flex-wrap gap-3 justify-content-center align-items-end">
+          <div class="filter-group">
+            <label class="form-label text-primary fw-semibold small" for="filter-type">Type</label>
+            <select id="filter-type" class="form-select">
+              <option value="">All Types</option>
+              {{ range $types }}
+              <option value="{{ . }}">{{ . }}</option>
+              {{ end }}
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="form-label text-primary fw-semibold small" for="filter-client">Client</label>
+            <select id="filter-client" class="form-select">
+              <option value="">All Clients</option>
+              {{ range $clients }}
+              <option value="{{ . }}">{{ . }}</option>
+              {{ end }}
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="form-label text-primary fw-semibold small" for="filter-year">Year</label>
+            <select id="filter-year" class="form-select">
+              <option value="">All Years</option>
+              {{ range $years }}
+              <option value="{{ . }}">{{ . }}</option>
+              {{ end }}
+            </select>
+          </div>
+          <div class="filter-group flex-grow-1" style="min-width:200px">
+            <label class="form-label text-primary fw-semibold small" for="filter-name">Search</label>
+            <input id="filter-name" type="text" class="form-control" placeholder="Search by name...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 showcase-grid" id="showcase-grid">
+      {{ range $items }}
+      <div class="col-12 col-md-6 col-lg-4 showcase-item"
+           data-type="{{ .type }}"
+           data-client="{{ .client }}"
+           data-year="{{ dateFormat "2006" .date }}"
+           data-name="{{ lower .name }}">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="aspect-ratio-62-5">
+            {{ partial "utilities/image-fluid" .image }}
+          </div>
+          <div class="card-body d-flex flex-column">
+            <span class="badge bg-primary align-self-start mb-2">{{ .type }}</span>
+            <h5 class="card-title fw-semibold text-primary">{{ .name }}</h5>
+            <p class="card-text text-black-61 small flex-grow-1">{{ .description }}</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <small class="text-muted">{{ .client }} &middot; {{ dateFormat "Jan 2006" .date }}</small>
+              <a href="/showcase/{{ .slug }}/" class="btn btn-outline-primary btn-sm">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var filterType = document.getElementById('filter-type');
+  var filterClient = document.getElementById('filter-client');
+  var filterYear = document.getElementById('filter-year');
+  var filterName = document.getElementById('filter-name');
+  var items = document.querySelectorAll('.showcase-item');
+
+  function filterItems() {
+    var type = filterType.value;
+    var client = filterClient.value;
+    var year = filterYear.value;
+    var name = filterName.value.toLowerCase().trim();
+
+    items.forEach(function(item) {
+      var matchesType = !type || item.dataset.type === type;
+      var matchesClient = !client || item.dataset.client === client;
+      var matchesYear = !year || item.dataset.year === year;
+      var matchesName = !name || item.dataset.name.indexOf(name) !== -1;
+      item.style.display = (matchesType && matchesClient && matchesYear && matchesName) ? '' : 'none';
+    });
+  }
+
+  filterType.addEventListener('change', filterItems);
+  filterClient.addEventListener('change', filterItems);
+  filterYear.addEventListener('change', filterItems);
+  filterName.addEventListener('input', filterItems);
+})();
+</script>
+{{ end }}

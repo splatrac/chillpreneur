@@ -1,0 +1,78 @@
+.section.showcase {
+  .showcase-filters {
+    .filter-group {
+      min-width: 160px;
+
+      .form-label {
+        margin-bottom: 0.25rem;
+      }
+
+      .form-select,
+      .form-control {
+        border-color: #dee2e6;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .showcase-grid {
+    .showcase-item {
+      transition: opacity 0.2s ease;
+    }
+
+    .card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+      }
+
+      .badge {
+        font-weight: 500;
+        font-size: 0.75rem;
+      }
+
+      .aspect-ratio-62-5 {
+        position: relative;
+        overflow: hidden;
+        padding-top: 62.5%;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.section.showcase-single {
+  .project-content {
+    line-height: 1.8;
+    color: #4a4a4a;
+
+    h3 {
+      color: #7C76BB;
+      font-weight: 600;
+      margin-top: 2rem;
+      font-size: 1.375rem;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .overflow {
+    overflow: hidden;
+  }
+}

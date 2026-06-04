@@ -1,0 +1,43 @@
+{{ define "main" }}
+<section class="section showcase-single py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <div class="mb-4">
+          <a href="/showcase/" class="text-decoration-none text-primary fw-semibold small">
+            &larr; Back to Showcase
+          </a>
+        </div>
+
+        {{ with .Params.image }}
+        <div class="mb-4 rounded overflow shadow">
+          {{ partial "utilities/image-fluid" . }}
+        </div>
+        {{ end }}
+
+        <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+          {{ with .Params.project_type }}
+          <span class="badge bg-primary">{{ . }}</span>
+          {{ end }}
+          {{ with .Params.client }}
+          <span class="text-muted small fw-semibold me-2">Client: {{ . }}</span>
+          {{ end }}
+          {{ with .Params.date }}
+          <span class="text-muted small">{{ dateFormat "January 2006" . }}</span>
+          {{ end }}
+        </div>
+
+        <h1 class="display-4 fw-bold text-primary pb-2">{{ .Title }}</h1>
+
+        {{ with .Params.description }}
+        <p class="lead text-black-61 pb-4">{{ . }}</p>
+        {{ end }}
+
+        <div class="project-content fs-5">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
