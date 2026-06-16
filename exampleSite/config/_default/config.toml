@@ -81,6 +81,11 @@ name = "Blog"
 url = "/blog"
 weight = 5
 
+[[menus.main]]
+name = "Showcase"
+url = "/showcase"
+weight = 6
+
 [[menus.buttons]]
 name = "Book a call"
 url = "/#"

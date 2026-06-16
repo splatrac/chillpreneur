@@ -1,0 +1,9 @@
+section.brands .container img {
+  filter: grayscale(100%);
+  &:hover {
+    filter: none;
+    cursor: pointer;
+  }
+  max-width: 120px;
+  height: auto;
+}

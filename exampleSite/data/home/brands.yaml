@@ -4,8 +4,17 @@ id: "brands"
 content:
   title: "We work with customers brands and startups "
   items:
-    - "images/brands-samsumg.png"
-    - "images/brands-google.png"
-    - "images/brands-adobe.png"
-    - "images/brands-spotify.png"
-    - "images/brands-dropbox.png"
+    - img: "images/brands-samsung.png"
+      url: "https://www.samsung.com"
+
+    - img: "images/brands-google.png"
+      url: "https://www.google.com"
+
+    - img: "images/brands-adobe.png"
+      url: "https://www.adobe.com"
+
+    - img: "images/brands-spotify.png"
+      url: "https://www.spotify.com"
+
+    - img: "images/brands-dropbox.png"
+      url: "https://www.dropbox.com"
