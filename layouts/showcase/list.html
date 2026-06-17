@@ -76,9 +76,7 @@
            data-year="{{ dateFormat "2006" .date }}"
            data-name="{{ lower .name }}">
         <div class="card h-100 border-0 shadow-sm">
-          <div class="aspect-ratio-62-5">
             {{ partial "utilities/image-fluid" .image }}
-          </div>
           <div class="card-body d-flex flex-column">
             <span class="badge bg-primary align-self-start mb-2">{{ .type }}</span>
             <h5 class="card-title fw-semibold text-primary">{{ .name }}</h5>
