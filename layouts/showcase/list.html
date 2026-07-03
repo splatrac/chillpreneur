@@ -83,7 +83,11 @@
             <p class="card-text text-black-61 small flex-grow-1">{{ .description }}</p>
             <div class="d-flex justify-content-between align-items-center mt-2">
               <small class="text-muted">{{ .client }} &middot; {{ dateFormat "Jan 2006" .date }}</small>
-              <a href="/showcase/{{ .slug }}/" class="btn btn-outline-primary btn-sm">View Project</a>
+              {{ if .link }}
+                <a href="{{ .link | safeURL }}" target="_blank" class="btn btn-outline-primary btn-sm">Open Project</a>
+              {{ else }}
+                <a href="/showcase/{{ .slug }}/" class="btn btn-outline-primary btn-sm">View More</a>
+              {{ end }}
             </div>
           </div>
         </div>

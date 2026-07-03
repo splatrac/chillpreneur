@@ -13,6 +13,7 @@ items:
     client: "StartupXYZ"
     slug: "brand-identity-package"
     image: "images/portfolio-ecommerce.png"
+    link: "https://www.google.com"
     description: "Complete brand identity including logo, color palette, typography, and brand guidelines."
 
   - type: "Web Design"
