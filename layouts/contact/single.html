@@ -14,7 +14,7 @@
     {{ if .Site.Params.contactFormAction }}
 
     <div class="max-w-lg mx-auto text-center bg-white rounded-xl shadow-lg space-y-6 p-4 mb-4 d-flex flex-column w-50">
-      <form id="contact-form" class="contact-form" action="{{ .Site.Params.contactFormAction }}" method="POST">
+      <form id="contact-form" class="contact-form" action="{{ .Site.Params.contactFormAction | safeURL }}" method="POST">
         <h2 class="text-2xl font-bold text-black-61 mb-4 text-center">Contact Form</h2>
 
         <div class="text-center">
