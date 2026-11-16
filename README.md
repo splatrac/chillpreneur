@@ -27,6 +27,24 @@ project folder to get an initial version of the website up and running.
 Now `hugo server` will start the local development server with a working
 version of the website with the theme.
 
+## Showcase categories
+
+The showcase list (`/showcase`) groups projects into three tabs: **Websites**,
+**Tools**, and **Other**. Set the tab for each project with an optional
+`category` field in `data/showcase.yaml`:
+
+```yaml
+items:
+  - type: "Platform"
+    category: "tools" # websites | tools | other
+    name: "E-Learning Platform"
+    # ...
+```
+
+If `category` is omitted, the theme infers it from `type`: types containing
+`website` or `portal` go to **websites**, types containing `platform`, `tool`,
+or `app` go to **tools**, and everything else goes to **other**.
+
 ## Credits
 
 Hugo Chillpreneur Theme is based on a [Theme by Iago Bozza](https://gitlab.com/writeonlyhugo/up-business-theme).

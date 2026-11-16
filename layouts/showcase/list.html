@@ -1,13 +1,40 @@
 {{ define "main" }}
-{{ $items := .Site.Data.showcase.items }}
+{{ $categoryDefs := slice
+  (dict "slug" "websites" "label" "Websites")
+  (dict "slug" "tools" "label" "Tools")
+  (dict "slug" "other" "label" "Other")
+}}
 
-{{ $types := slice }}
+{{ $items := slice }}
+{{ range .Site.Data.showcase.items }}
+  {{ $category := "" }}
+  {{ with .category }}{{ $category = lower (string .) }}{{ end }}
+  {{ if not (in (slice "websites" "tools" "other") $category) }}
+    {{ $type := lower (string (.type | default "")) }}
+    {{ if or (in $type "platform") (in $type "tool") (in $type "app") }}
+      {{ $category = "tools" }}
+    {{ else if or (in $type "website") (in $type "portal") }}
+      {{ $category = "websites" }}
+    {{ else }}
+      {{ $category = "other" }}
+    {{ end }}
+  {{ end }}
+  {{ $items = $items | append (merge . (dict "category" $category)) }}
+{{ end }}
+
+{{ $counts := dict }}
+{{ range $categoryDefs }}
+  {{ $slug := .slug }}
+  {{ $count := 0 }}
+  {{ range $items }}
+    {{ if eq .category $slug }}{{ $count = add $count 1 }}{{ end }}
+  {{ end }}
+  {{ $counts = merge $counts (dict $slug $count) }}
+{{ end }}
+
 {{ $clients := slice }}
 {{ $years := slice }}
 {{ range $items }}
-  {{ if not (in $types .type) }}
-    {{ $types = $types | append .type }}
-  {{ end }}
   {{ if not (in $clients .client) }}
     {{ $clients = $clients | append .client }}
   {{ end }}
@@ -17,7 +44,6 @@
   {{ end }}
 {{ end }}
 
-{{ $types = sort $types }}
 {{ $clients = sort $clients }}
 {{ $years = sort $years }}
 
@@ -30,18 +56,28 @@
       </div>
     </div>
 
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <ul class="nav nav-pills showcase-tabs justify-content-center pb-4" role="tablist">
+          {{ range $index, $category := $categoryDefs }}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link{{ if eq $index 0 }} active{{ end }}" type="button"
+                    id="showcase-tab-{{ $category.slug }}"
+                    data-category="{{ $category.slug }}"
+                    role="tab"
+                    aria-selected="{{ if eq $index 0 }}true{{ else }}false{{ end }}">
+              {{ $category.label }}
+              <span class="badge rounded-pill">{{ index $counts $category.slug }}</span>
+            </button>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+
     <div class="row justify-content-center pb-5">
       <div class="col-12">
         <div class="showcase-filters d-flex flex-wrap gap-3 justify-content-center align-items-end">
-          <div class="filter-group">
-            <label class="form-label text-primary fw-semibold small" for="filter-type">Type</label>
-            <select id="filter-type" class="form-select">
-              <option value="">All Types</option>
-              {{ range $types }}
-              <option value="{{ . }}">{{ . }}</option>
-              {{ end }}
-            </select>
-          </div>
           <div class="filter-group">
             <label class="form-label text-primary fw-semibold small" for="filter-client">Client</label>
             <select id="filter-client" class="form-select">
@@ -71,7 +107,7 @@
     <div class="row g-4 showcase-grid" id="showcase-grid">
       {{ range $items }}
       <div class="col-12 col-md-6 col-lg-4 showcase-item"
-           data-type="{{ .type }}"
+           data-category="{{ .category }}"
            data-client="{{ .client }}"
            data-year="{{ dateFormat "2006" .date }}"
            data-name="{{ lower .name }}">
@@ -94,36 +130,77 @@
       </div>
       {{ end }}
     </div>
+
+    <div id="showcase-empty" class="showcase-empty text-center text-black-61 py-5 d-none">
+      <p class="mb-0">No projects match your filters.</p>
+    </div>
   </div>
 </section>
 
 <script>
 (function() {
-  var filterType = document.getElementById('filter-type');
+  var tabs = document.querySelectorAll('.showcase-tabs .nav-link');
   var filterClient = document.getElementById('filter-client');
   var filterYear = document.getElementById('filter-year');
   var filterName = document.getElementById('filter-name');
   var items = document.querySelectorAll('.showcase-item');
+  var empty = document.getElementById('showcase-empty');
+  var activeCategory = 'websites';
+
+  function setActiveCategory(category) {
+    activeCategory = category;
+
+    tabs.forEach(function(tab) {
+      var isActive = tab.dataset.category === category;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', '#' + category);
+    }
+
+    filterItems();
+  }
 
   function filterItems() {
-    var type = filterType.value;
     var client = filterClient.value;
     var year = filterYear.value;
     var name = filterName.value.toLowerCase().trim();
+    var visible = 0;
 
     items.forEach(function(item) {
-      var matchesType = !type || item.dataset.type === type;
+      var matchesCategory = item.dataset.category === activeCategory;
       var matchesClient = !client || item.dataset.client === client;
       var matchesYear = !year || item.dataset.year === year;
       var matchesName = !name || item.dataset.name.indexOf(name) !== -1;
-      item.style.display = (matchesType && matchesClient && matchesYear && matchesName) ? '' : 'none';
+      var show = matchesCategory && matchesClient && matchesYear && matchesName;
+
+      item.style.display = show ? '' : 'none';
+      if (show) visible++;
     });
+
+    if (empty) {
+      empty.classList.toggle('d-none', visible !== 0);
+    }
   }
 
-  filterType.addEventListener('change', filterItems);
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      setActiveCategory(tab.dataset.category);
+    });
+  });
+
   filterClient.addEventListener('change', filterItems);
   filterYear.addEventListener('change', filterItems);
   filterName.addEventListener('input', filterItems);
+
+  var hash = window.location.hash.replace('#', '');
+  var hasCategory = Array.prototype.some.call(tabs, function(tab) {
+    return tab.dataset.category === hash;
+  });
+
+  setActiveCategory(hasCategory ? hash : 'websites');
 })();
 </script>
 {{ end }}

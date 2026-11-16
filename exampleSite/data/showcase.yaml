@@ -1,5 +1,6 @@
 items:
   - type: "Web Design"
+    category: "tools"
     name: "E-commerce Platform"
     date: "2024-03-15"
     client: "TechCorp"
@@ -8,6 +9,7 @@ items:
     description: "A full-featured e-commerce platform with custom dashboard and payment integration."
 
   - type: "Branding"
+    category: "other"
     name: "Brand Identity Package"
     date: "2024-01-20"
     client: "StartupXYZ"
@@ -17,6 +19,7 @@ items:
     description: "Complete brand identity including logo, color palette, typography, and brand guidelines."
 
   - type: "Web Design"
+    category: "tools"
     name: "SaaS Dashboard"
     date: "2024-06-10"
     client: "DataFlow Inc"
@@ -25,6 +28,7 @@ items:
     description: "Analytics dashboard with real-time data visualization and team collaboration features."
 
   - type: "Mobile App"
+    category: "tools"
     name: "Fitness Tracker App"
     date: "2023-11-05"
     client: "HealthTech"
@@ -33,6 +37,7 @@ items:
     description: "Cross-platform mobile app for workout tracking, meal planning, and progress monitoring."
 
   - type: "Branding"
+    category: "other"
     name: "Restaurant Rebrand"
     date: "2024-08-22"
     client: "Green Bistro"
@@ -41,6 +46,7 @@ items:
     description: "Full rebrand for a farm-to-table restaurant chain including menus, signage, and digital assets."
 
   - type: "Web Design"
+    category: "websites"
     name: "Portfolio Website"
     date: "2023-07-14"
     client: "Creative Studio"
@@ -49,6 +55,7 @@ items:
     description: "Minimalist portfolio website showcasing creative work with smooth animations."
 
   - type: "Mobile App"
+    category: "tools"
     name: "Task Manager Pro"
     date: "2024-04-30"
     client: "Productivity Labs"
@@ -57,6 +64,7 @@ items:
     description: "Project management app with kanban boards, time tracking, and team chat."
 
   - type: "Branding"
+    category: "other"
     name: "Product Launch Campaign"
     date: "2024-09-01"
     client: "TechCorp"
@@ -65,6 +73,7 @@ items:
     description: "Visual identity and marketing materials for a major product launch event."
 
   - type: "Web Design"
+    category: "tools"
     name: "Educational Platform"
     date: "2023-05-18"
     client: "LearnOnline"
