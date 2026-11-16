@@ -45,6 +45,10 @@ If `category` is omitted, the theme infers it from `type`: types containing
 `website` or `portal` go to **websites**, types containing `platform`, `tool`,
 or `app` go to **tools**, and everything else goes to **other**.
 
+Set an optional `link_label` to change the card button text (defaults to
+`Open Project`). Links starting with `http` open in a new tab; internal links
+open in the same tab.
+
 ## Credits
 
 Hugo Chillpreneur Theme is based on a [Theme by Iago Bozza](https://gitlab.com/writeonlyhugo/up-business-theme).
