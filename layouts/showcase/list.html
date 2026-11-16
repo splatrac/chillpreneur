@@ -120,7 +120,8 @@
             <div class="d-flex justify-content-between align-items-center mt-2">
               <small class="text-muted">{{ .client }} &middot; {{ dateFormat "Jan 2006" .date }}</small>
               {{ if .link }}
-                <a href="{{ .link | safeURL }}" target="_blank" class="btn btn-outline-primary btn-sm">Open Project</a>
+                {{ $external := hasPrefix .link "http" }}
+                <a href="{{ .link | safeURL }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }} class="btn btn-outline-primary btn-sm">Open Project</a>
               {{ else }}
                 <a href="/showcase/{{ .slug }}/" class="btn btn-outline-primary btn-sm">View More</a>
               {{ end }}
